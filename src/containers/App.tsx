@@ -1,6 +1,5 @@
-
 import React, {useState} from "react";
-import Cell from './Cell/Cell';
+import Cell from '../components/Cell/Cell';
 import './App.css';
 
 interface Cell {
@@ -27,19 +26,20 @@ function App() {
 
     const onclick = (id: number) => {
         setState(state => {
+            let tries = state.tries;
             const cells = state.cells.map(cell => {
-                if (cell.id === id) {
+                if (cell.id === id && !cell.clicked) {
                     cell.clicked = true;
+                    state.tries++;
                 }
                 return cell;
             });
-            const tries = state.tries++;
             return {cells, tries};
         });
     }
 
     const [state, setState] = useState(createItems(36));
-    const containerStyle: React.CSSProperties = {width: '190px', height: '190px'};
+    const containerStyle: React.CSSProperties = {width: '280px', height: '280px'};
     return (
         <div className="App" style={containerStyle}>
             {state.cells.map(cell => {

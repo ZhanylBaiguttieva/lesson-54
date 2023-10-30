@@ -2,15 +2,10 @@ import React, {useState} from "react";
 import Cell from '../components/Cell/Cell';
 import './App.css';
 
-interface Cell {
-    id: number;
-    hasItem: boolean;
-    clicked: boolean;
-}
 
 function App() {
     const createItems = (length: number) => {
-        const cells: Cell[] = [];
+        const cells: Item[] = [];
         const tries: number = 0;
         for(let i = 0; i < length; i++) {
             cells.push({id: i, hasItem: false, clicked:false});

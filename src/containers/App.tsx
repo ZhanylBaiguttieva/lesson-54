@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import Cell from '../components/Cell/Cell';
+import Counter from "../components/Counter/Counter";
 import './App.css';
 
 
@@ -43,7 +44,7 @@ function App() {
                     );
                 })
             }
-            <p>Total tries: {state.tries}</p>
+            <Counter tries={state.tries} />
             <button onClick={reset}>Reset</button>
         </div>
     )
